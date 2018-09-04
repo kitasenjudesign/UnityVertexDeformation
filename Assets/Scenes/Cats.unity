@@ -163,8 +163,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 50
-  field of view: 54
+  far clip plane: 40
+  field of view: 61
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 300708305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.32, z: -3.82}
+  m_LocalPosition: {x: 0, y: 0.32, z: -4.26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -215,7 +215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1150969061}
   - component: {fileID: 1150969060}
-  - component: {fileID: 1150969062}
   m_Layer: 0
   m_Name: cats
   m_TagString: Untagged
@@ -229,7 +228,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1150969059}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07aaeed7784ca467798e69869c7c8cf5, type: 3}
   m_Name: 
@@ -238,7 +237,7 @@ MonoBehaviour:
   _mat: {fileID: 2100000, guid: 044db38eb03854ae39532a9d2f1cdce1, type: 2}
   _count: 100
   _W: 8
-  _H: 10
+  _H: 4
   _colors2: []
 --- !u!4 &1150969061
 Transform:
@@ -253,22 +252,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1150969062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1150969059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b51d0d53611cd4a9b8f22c9101ae415f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mesh: {fileID: 4300000, guid: a93fd048edfbc480984aa2b326ff9160, type: 3}
-  _mat: {fileID: 2100000, guid: e477665d5d2744387898e59ebe13ea80, type: 2}
-  _count: 10
-  _W: 8
-  _H: 8
 --- !u!1 &1293423403
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +362,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e4b7b26827f5e4115af1aba99d0f908d, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

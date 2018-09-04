@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: New Post-Processing Profile
+  m_Name: Bloom
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Settings:
       excludeSkybox: 1
   antialiasing:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       method: 0
       fxaaSettings:
@@ -73,7 +73,7 @@ MonoBehaviour:
     m_Settings:
       focusDistance: 1.1
       aperture: 0.1
-      focalLength: 131
+      focalLength: 8
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
@@ -97,17 +97,17 @@ MonoBehaviour:
       logMin: -8
       logMax: 4
   bloom:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.09
-        threshold: 1.01
-        softKnee: 0.56
-        radius: 2.5
+        intensity: 0.19
+        threshold: 0.14
+        softKnee: 0.1
+        radius: 3
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
-        intensity: 3
+        intensity: 2.54
   colorGrading:
     m_Enabled: 0
     m_Settings:

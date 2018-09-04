@@ -2,9 +2,11 @@ Shader "face/BgFace4" {
     Properties {
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _Emission ("_Emission", 2D) = "white" {}
+
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
-
+        
         _Amount ("_Amount", Range(0,1)) = 0.5
         _Amount2 ("_Amount2", Range(0,10)) = 0
         
@@ -40,6 +42,7 @@ Shader "face/BgFace4" {
         #pragma target 3.0
 
         sampler2D _MainTex;
+        sampler2D _Emission;
 
         struct Input {
             float2 uv_MainTex;
@@ -171,7 +174,9 @@ Shader "face/BgFace4" {
             
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
             //c.r *= 2;
-            o.Albedo = c.rgb;
+            o.Albedo = c.rgb;// + tex2D(_Emission, IN.uv_MainTex);// * _EmissionColor; 
+            o.Emission = tex2D(_Emission, IN.uv_MainTex);
+
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
