@@ -1,6 +1,6 @@
 # Vertex Deformation with Vertex Shader
 
-processing shadows and shading during vertex deformation.
+processing shadows and shading for vertex deformation
 
 ![sample01](./Images/a.png)
 
