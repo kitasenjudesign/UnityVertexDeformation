@@ -1,4 +1,6 @@
-# Mesh Deformation with Vertex Shader
+# Vertex Deformation with Vertex Shader
+
+processing shadows and shading during vertex deformation.
 
 ![sample01](./Images/a.png)
 
