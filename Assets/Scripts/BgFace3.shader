@@ -1,3 +1,5 @@
+// Upgrade NOTE: upgraded instancing buffer 'Props' to new syntax.
+
 Shader "face/BgFace3" {
     Properties {
         _Color ("Color", Color) = (1,1,1,1)
@@ -67,20 +69,16 @@ Shader "face/BgFace3" {
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_CBUFFER_START(Props)
+        UNITY_INSTANCING_BUFFER_START(Props)
             UNITY_DEFINE_INSTANCED_PROP(fixed4, _ColorA) // Make _Color an instanced property (i.e. an array)
-        UNITY_INSTANCING_CBUFFER_END
+#define _ColorA_arr Props
+        UNITY_INSTANCING_BUFFER_END(Props)
 
 
         #include "./noise/SimplexNoise3D.hlsl"
 
         float4 getNewVertPosition( float4 v )
 		{
-
-            //_Detail = 
-            
-
-
             float3 vv = v.xyz;
 			float amp = length(vv);
 			float radX = (-atan2(vv.z, vv.x) + 3.1415 * 0.5); //+ vv.y * sin(_count) * nejireX;//横方向の角度
@@ -108,13 +106,13 @@ Shader "face/BgFace3" {
 		}
 
 
-        void vert(inout appdata_full v, out Input o )
+        void vert(inout appdata_full v, out Input o)
         {
             UNITY_INITIALIZE_OUTPUT(Input, o);
             
             UNITY_SETUP_INSTANCE_ID (v);
 
-            fixed4 col = UNITY_ACCESS_INSTANCED_PROP(_ColorA);
+            fixed4 col = UNITY_ACCESS_INSTANCED_PROP(_ColorA_arr, _ColorA);
             
             _Detail = col.x;
             _Voxel = col.y;

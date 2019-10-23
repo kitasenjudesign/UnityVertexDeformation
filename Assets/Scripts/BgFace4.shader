@@ -1,3 +1,5 @@
+// Upgrade NOTE: upgraded instancing buffer 'Props' to new syntax.
+
 Shader "face/BgFace4" {
     Properties {
         _Color ("Color", Color) = (1,1,1,1)
@@ -73,9 +75,10 @@ Shader "face/BgFace4" {
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_CBUFFER_START(Props)
+        UNITY_INSTANCING_BUFFER_START(Props)
             UNITY_DEFINE_INSTANCED_PROP(float4x4, _ColorA) // Make _Color an instanced property (i.e. an array)
-        UNITY_INSTANCING_CBUFFER_END
+#define _ColorA_arr Props
+        UNITY_INSTANCING_BUFFER_END(Props)
 
 
         #include "./noise/SimplexNoise3D.hlsl"
@@ -126,7 +129,7 @@ Shader "face/BgFace4" {
             
             UNITY_SETUP_INSTANCE_ID (v);
 
-            float4x4 col = UNITY_ACCESS_INSTANCED_PROP(_ColorA);
+            float4x4 col = UNITY_ACCESS_INSTANCED_PROP(_ColorA_arr, _ColorA);
             
             _Detail     = col[0][0];
             _Voxel      = col[1][0];
