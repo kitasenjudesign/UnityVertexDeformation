@@ -1,6 +1,6 @@
 # Vertex Deformation with Vertex Shader
 
-* processing shadows and shading for vertex deformation
+* shadow and shading for vertex deformation
 * https://vimeo.com/288269594
 
 ![sample00](./Images/1.png)
